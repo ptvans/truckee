@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photo Gallery - 15627 Sudsbury Circle</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .lightbox.active {
+            display: flex;
+        }
+        
+        .lightbox-content {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+        
+        .lightbox-close:hover {
+            opacity: 0.7;
+        }
+        
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem 2rem;
+            user-select: none;
+            transition: opacity 0.3s;
+        }
+        
+        .lightbox-nav:hover {
+            opacity: 0.7;
+        }
+        
+        .lightbox-prev {
+            left: 2rem;
+        }
+        
+        .lightbox-next {
+            right: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <div class="logo">Sudsbury <span>Circle</span></div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="plans.html">Architectural Plans</a></li>
+                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="details.html">Full Details</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Page Header -->
+    <div style="background: linear-gradient(135deg, #1a2634 0%, #2c3e50 100%); color: white; padding: 5rem 2rem; text-align: center;">
+        <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 400; margin-bottom: 1rem; letter-spacing: 1px;">Photo Gallery</h1>
+        <p style="font-size: 1.1rem; opacity: 0.9; font-weight: 300; letter-spacing: 0.5px;">The Property and Its Surroundings</p>
+    </div>
+
+    <div class="container">
+        <!-- Gallery Introduction -->
+        <section class="section">
+            <h2 class="section-title">The Property</h2>
+            <p style="font-size: 1.05rem; line-height: 1.85; margin-bottom: 3rem; text-align: center; max-width: 750px; margin-left: auto; margin-right: auto; color: #3d4f5f;">
+                Images of the 0.47-acre lot, mature Jeffrey pines, Castle Peak views, and the protected Glenshire meadow.
+            </p>
+        </section>
+
+        <!-- Gallery Grid -->
+        <section class="section">
+            <div class="gallery-grid">
+                <!-- Placeholder for Property Views -->
+                <div class="gallery-item" onclick="openLightbox(0)">
+                    <div class="gallery-placeholder">
+                        <div style="text-align: center;">
+                            <p>Lot Overview</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Street View</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(1)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #2c3e50 0%, #3d566e 100%);">
+                        <div style="text-align: center;">
+                            <p>Castle Peak View</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Eastern Sightline</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(2)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #4a6580 100%);">
+                        <div style="text-align: center;">
+                            <p>Jeffrey Pines</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Mature Trees</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(3)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4a6580 0%, #2c3e50 100%);">
+                        <div style="text-align: center;">
+                            <p>Glenshire Meadow</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Western View</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(4)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #1a2634 0%, #3d566e 100%);">
+                        <div style="text-align: center;">
+                            <p>Building Site</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Cleared Footprint</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(5)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #1a2634 100%);">
+                        <div style="text-align: center;">
+                            <p>Mountain Views</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Multiple Sightlines</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(6)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);">
+                        <div style="text-align: center;">
+                            <p>Trail Access</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Greenspace Network</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(7)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4a6580 0%, #3d566e 100%);">
+                        <div style="text-align: center;">
+                            <p>Neighborhood</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Glenshire Setting</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="gallery-item" onclick="openLightbox(8)">
+                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #2c3e50 100%);">
+                        <div style="text-align: center;">
+                            <p>Lot Exposure</p>
+                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Natural Light</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Property Features -->
+        <section class="section">
+            <h2 class="section-title">What Sets This Lot Apart</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <h3>Mature Jeffrey Pines</h3>
+                    <p>32 established trees provide natural shade, privacy, and the distinctive character of a Sierra forest setting.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Mountain Sightlines</h3>
+                    <p>Views to Castle Peak and surrounding ridgelines through the tree canopy.</p>
+                </div>
+                <div class="feature-card">
+                    <h3>Protected Open Space</h3>
+                    <p>The rear property line adjoins permanent protected greenspace with an established trail network.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Call to Action -->
+        <section class="section text-center">
+            <div style="background-color: white; padding: 3rem; border-radius: 4px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.04);">
+                <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; color: #1a2634; margin-bottom: 1.5rem; font-weight: 500;">See It In Person</h2>
+                <p style="font-size: 1.05rem; margin-bottom: 2rem; color: #3d4f5f;">Schedule a showing to walk the property and experience the setting firsthand.</p>
+                <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="plans.html" class="cta-button">View Plans</a>
+                    <a href="details.html" class="cta-button">Full Details</a>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1, event)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1, event)">&#10095;</span>
+        <div id="lightbox-content" style="text-align: center; color: white;">
+            <p style="font-size: 2rem; margin-bottom: 2rem;">Image placeholder - awaiting your photos</p>
+            <p style="opacity: 0.8;">This is a placeholder. Replace with actual property images.</p>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer id="contact">
+        <div class="footer-content">
+            <div class="contact-info">
+                <h3>Schedule a Showing</h3>
+                <p style="opacity: 0.9;">Contact us to arrange a private viewing of this property</p>
+                <p style="margin-top: 1.5rem; font-size: 1.1rem; font-weight: 500; letter-spacing: 0.5px;">Contact Your Agent</p>
+                <p style="margin-top: 1.5rem; font-size: 0.9rem; opacity: 0.7;">APN: 049-280-022-000</p>
+            </div>
+            <p style="margin-top: 2.5rem; opacity: 0.6; font-size: 0.85rem;">&copy; 2026 15627 Sudsbury Circle, Truckee, CA</p>
+        </div>
+    </footer>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'Lot Overview - Front View',
+            'Castle Peak View - Eastern View',
+            'Jeffrey Pines - Mature Trees',
+            'Glenshire Meadow - Western Backdrop',
+            'Building Footprint - Cleared Area',
+            'Mountain Views - Multiple Directions',
+            'Trail Access - Greenspace Trails',
+            'Neighborhood - Glenshire Community',
+            'Natural Light - Sunny Exposure'
+        ];
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox').classList.add('active');
+            updateLightboxContent();
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+
+        function changeImage(direction, event) {
+            event.stopPropagation();
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            const content = document.getElementById('lightbox-content');
+            content.innerHTML = `
+                <p style="font-size: 2rem; margin-bottom: 1rem;">${images[currentImageIndex]}</p>
+                <p style="opacity: 0.8; font-size: 1.1rem;">Image placeholder ${currentImageIndex + 1} of ${images.length}</p>
+                <p style="opacity: 0.6; margin-top: 2rem;">Replace with actual property photos</p>
+            `;
+        }
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (event.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                } else if (event.key === 'ArrowLeft') {
+                    changeImage(-1, event);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1, event);
+                }
+            }
+        });
+    </script>
+</body>
+</html>
+
