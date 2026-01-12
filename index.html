@@ -5,18 +5,81 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>15627 Sudsbury Circle, Truckee - Premium Buildable Lot</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 9999;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.95);
+            align-items: center;
+            justify-content: center;
+        }
+        .lightbox.active { display: flex; }
+        .lightbox-content { max-width: 90%; max-height: 90%; object-fit: contain; }
+        .lightbox-close {
+            position: absolute;
+            top: 2rem;
+            right: 3rem;
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            font-weight: 300;
+            transition: opacity 0.3s;
+        }
+        .lightbox-close:hover { opacity: 0.7; }
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            color: white;
+            font-size: 3rem;
+            cursor: pointer;
+            padding: 1rem 2rem;
+            user-select: none;
+            transition: opacity 0.3s;
+        }
+        .lightbox-nav:hover { opacity: 0.7; }
+        .lightbox-prev { left: 2rem; }
+        .lightbox-next { right: 2rem; }
+        .lightbox-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+            max-height: 90%;
+        }
+        .lightbox-caption {
+            color: white;
+            font-size: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
+    </style>
 </head>
 <body>
     <!-- Navigation -->
     <nav>
         <div class="nav-container">
             <div class="logo">Sudsbury <span>Circle</span></div>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
-                <li><a href="plans.html">Architectural Plans</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
+                <li><a href="gallery.html">Photos</a></li>
+                <li><a href="plans.html">Plans</a></li>
                 <li><a href="details.html">Full Details</a></li>
             </ul>
+            <div class="nav-overlay" onclick="toggleNav()"></div>
         </div>
     </nav>
 
@@ -45,6 +108,45 @@
                 <div class="stat-number">Utilities at Site</div>
                 <div class="stat-label">Ready to Build</div>
             </div>
+            <div class="stat-item">
+                <div class="stat-number">Castle Peak &amp; Martis Peak</div>
+                <div class="stat-label">Mountain Views</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photo Strip -->
+    <section style="background-color: var(--white); padding: 1.5rem 2rem; box-shadow: 0 2px 10px rgba(0,0,0,0.05);">
+        <div style="max-width: 1400px; margin: 0 auto;">
+            <div class="photo-strip">
+                <div class="photo-strip-item" onclick="openLightbox(0)">
+                    <img src="images/photos/view-from-corner-Sudsbury-and-Dorcester.jpg" alt="View from Corner">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(1)">
+                    <img src="images/photos/view-from-street.jpg" alt="View from Street">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(6)">
+                    <img src="images/photos/southwest-corner.jpg" alt="Southwest Corner">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(10)">
+                    <img src="images/photos/homesite-clearing.jpg" alt="Homesite Clearing">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(9)">
+                    <img src="images/photos/south-jeffrey-pines.jpg" alt="Jeffrey Pines">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(21)">
+                    <img src="images/photos/west-view-to-castle-peak.jpg" alt="Castle Peak View">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(22)">
+                    <img src="images/photos/southeast-to-martis-peak.jpg" alt="Martis Peak View">
+                </div>
+                <div class="photo-strip-item" onclick="openLightbox(19)">
+                    <img src="images/photos/north-from-rear-corner.jpg" alt="Rear Corner View">
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 0.75rem; font-size: 0.8rem; color: #3d4f5f;">
+                <a href="gallery.html" style="color: #b8964c; text-decoration: none; font-weight: 500;">View all 29 photos →</a>
+            </p>
         </div>
     </section>
 
@@ -54,7 +156,7 @@
             <h2 class="section-title">Property Overview</h2>
             <div class="content-column">
                 <h3>Prime Location</h3>
-                <p>Large, predominantly flat lot with gentle rear slope toward Glenshire meadow. Castle Peak views to the east.</p>
+                <p>Large, predominantly flat lot with gentle rear slope toward Glenshire meadow. View of Castle Peak to the west and Martis Peak to the southeast.</p>
                 
                 <h3>Natural Setting</h3>
                 <p>32 mature Jeffrey pines grace the property. Lot backs to permanent protected greenspace with trail access.</p>
@@ -68,7 +170,7 @@
                 <h3>Mountain Views</h3>
                 <p>Multiple sight lines to surrounding peaks. Wooded privacy with peek-through mountain views.</p>
                 
-                <h3>Included Plans</h3>
+                <h3>Available Plans</h3>
                 <p>Professional architectural plans available: 4 bedrooms, 3 baths, 3-car garage. Customize or bring your own.</p>
             </div>
         </section>
@@ -83,7 +185,7 @@
                 <ul style="margin-left: 2rem; margin-top: 1rem; line-height: 2.2;">
                     <li>Level to gently sloping topography—ideal for building</li>
                     <li>Backs to protected greenspace with trail network</li>
-                    <li>Castle Peak sightlines to the east</li>
+                    <li>Castle Peak sightlines to the west and Martis Peak to the southeast</li>
                     <li>32 mature Jeffrey pines on site</li>
                     <li>Building footprint already cleared</li>
                     <li>All utilities in place: water, sewer, electric, cable</li>
@@ -97,8 +199,8 @@
         <section class="section text-center">
             <h2 class="section-title">Learn More</h2>
             <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; margin-top: 2rem;">
+                <a href="gallery.html" class="cta-button">Photos</a>
                 <a href="plans.html" class="cta-button">View Plans</a>
-                <a href="gallery.html" class="cta-button">Photo Gallery</a>
                 <a href="details.html" class="cta-button">Full Details</a>
             </div>
         </section>
@@ -116,6 +218,127 @@
             <p style="margin-top: 2.5rem; opacity: 0.6; font-size: 0.85rem;">&copy; 2026 15627 Sudsbury Circle, Truckee, CA</p>
         </div>
     </footer>
+
+    <!-- Lightbox -->
+    <div id="lightbox" class="lightbox" onclick="closeLightbox(event)">
+        <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
+        <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1, event)">&#10094;</span>
+        <span class="lightbox-nav lightbox-next" onclick="changeImage(1, event)">&#10095;</span>
+        <div class="lightbox-container">
+            <img id="lightbox-image" class="lightbox-content" src="" alt="Property Photo">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
+        </div>
+    </div>
+
+    <script>
+        let currentImageIndex = 0;
+        const images = [
+            'images/photos/view-from-corner-Sudsbury-and-Dorcester.jpg',
+            'images/photos/view-from-street.jpg',
+            'images/photos/Sudsbury-Circle.jpg',
+            'images/photos/south-along-Sudsbury-Circle.jpg',
+            'images/photos/looking-south-along-Sudsbury-Circle.jpg',
+            'images/photos/west-along-Dorcester-drive.jpg',
+            'images/photos/southwest-corner.jpg',
+            'images/photos/southwest.jpg',
+            'images/photos/west-along-south-property-line.jpg',
+            'images/photos/south-jeffrey-pines.jpg',
+            'images/photos/homesite-clearing.jpg',
+            'images/photos/homesite-clearing-02.jpg',
+            'images/photos/south-to-homesite-clearing.jpg',
+            'images/photos/west-through-homesite-clearing.jpg',
+            'images/photos/looking-north-along-eastern-property-line.jpg',
+            'images/photos/looking-north-along-eastern-line-02.jpg',
+            'images/photos/west-from-NE-corner.jpg',
+            'images/photos/west-from-NE-corner-02.jpg',
+            'images/photos/west-from-NE-corner-03.jpg',
+            'images/photos/north-from-rear-corner.jpg',
+            'images/photos/north-from-rear-downslope.jpg',
+            'images/photos/west-view-to-castle-peak.jpg',
+            'images/photos/southeast-to-martis-peak.jpg',
+            'images/photos/southeast-toward-meadow-and-martis-peak.jpg',
+            'images/photos/view-to-street-from-lot-grade.jpg',
+            'images/photos/IMG_7617.jpeg',
+            'images/photos/IMG_7628.jpeg',
+            'images/photos/IMG_7668.jpeg',
+            'images/photos/IMG_7673.jpeg'
+        ];
+
+        const captions = [
+            'View from Corner of Sudsbury & Dorcester',
+            'View from Street',
+            'Sudsbury Circle',
+            'South Along Sudsbury Circle',
+            'Looking South Along Sudsbury Circle',
+            'West Along Dorcester Drive',
+            'Southwest Corner',
+            'Southwest View',
+            'West Along South Property Line',
+            'South Jeffrey Pines',
+            'Homesite Clearing',
+            'Homesite Clearing',
+            'South to Homesite Clearing',
+            'West Through Homesite Clearing',
+            'Looking North Along Eastern Property Line',
+            'Looking North Along Eastern Line',
+            'West from NE Corner',
+            'West from NE Corner',
+            'West from NE Corner',
+            'North from Rear Corner',
+            'North from Rear Downslope',
+            'West View to Castle Peak',
+            'Southeast to Martis Peak',
+            'Southeast Toward Meadow & Martis Peak',
+            'View to Street from Lot Grade',
+            'Property View',
+            'Property View',
+            'Property View',
+            'Property View'
+        ];
+
+        function openLightbox(index) {
+            currentImageIndex = index;
+            document.getElementById('lightbox').classList.add('active');
+            updateLightboxContent();
+        }
+
+        function closeLightbox(event) {
+            if (event.target.id === 'lightbox' || event.target.classList.contains('lightbox-close')) {
+                document.getElementById('lightbox').classList.remove('active');
+            }
+        }
+
+        function changeImage(direction, event) {
+            event.stopPropagation();
+            currentImageIndex = (currentImageIndex + direction + images.length) % images.length;
+            updateLightboxContent();
+        }
+
+        function updateLightboxContent() {
+            document.getElementById('lightbox-image').src = images[currentImageIndex];
+            document.getElementById('lightbox-caption').textContent = captions[currentImageIndex] + ' (' + (currentImageIndex + 1) + ' of ' + images.length + ')';
+        }
+
+        document.addEventListener('keydown', function(event) {
+            const lightbox = document.getElementById('lightbox');
+            if (lightbox.classList.contains('active')) {
+                if (event.key === 'Escape') {
+                    lightbox.classList.remove('active');
+                } else if (event.key === 'ArrowLeft') {
+                    changeImage(-1, event);
+                } else if (event.key === 'ArrowRight') {
+                    changeImage(1, event);
+                }
+            }
+        });
+
+        // Mobile navigation toggle
+        function toggleNav() {
+            document.querySelector('.nav-toggle').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-overlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
 

@@ -53,7 +53,7 @@ nav {
 
 .logo {
     font-family: var(--font-display);
-    font-size: 1.75rem;
+    font-size: 1.5rem;
     font-weight: 500;
     color: var(--primary-color);
     letter-spacing: 0.5px;
@@ -73,7 +73,7 @@ nav {
     text-decoration: none;
     color: var(--text-color);
     font-weight: 500;
-    font-size: 0.9rem;
+    font-size: 0.8rem;
     letter-spacing: 0.5px;
     text-transform: uppercase;
     transition: color 0.3s ease;
@@ -87,7 +87,7 @@ nav {
 .hero {
     height: 70vh;
     background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), 
-                url('images/photos/IMG_7617.jpeg');
+                url('images/photos/west-along-Dorcester-drive.jpg');
     background-size: cover;
     background-position: center;
     display: flex;
@@ -99,7 +99,7 @@ nav {
 
 .hero-content h1 {
     font-family: var(--font-display);
-    font-size: 4rem;
+    font-size: 3.25rem;
     margin-bottom: 1.5rem;
     font-weight: 400;
     letter-spacing: 1px;
@@ -108,29 +108,29 @@ nav {
 
 .hero-content .price {
     font-family: var(--font-display);
-    font-size: 2.75rem;
+    font-size: 2.25rem;
     color: var(--gold-light);
-    font-weight: 500;
+    font-weight: 700;
     margin-bottom: 1rem;
     letter-spacing: 1px;
 }
 
 .hero-content .address {
-    font-size: 1.25rem;
+    font-size: 1.1rem;
     margin-bottom: 2.5rem;
     opacity: 0.95;
-    font-weight: 300;
+    font-weight: 600;
     letter-spacing: 1px;
 }
 
 .cta-button {
     display: inline-block;
-    padding: 1rem 2.5rem;
+    padding: 0.85rem 2.25rem;
     background-color: var(--gold);
     color: var(--white);
     text-decoration: none;
     border-radius: 2px;
-    font-size: 0.85rem;
+    font-size: 0.75rem;
     font-weight: 600;
     letter-spacing: 1.5px;
     text-transform: uppercase;
@@ -174,14 +174,14 @@ nav {
 
 .stat-item .stat-number {
     font-family: var(--font-display);
-    font-size: 2.25rem;
+    font-size: 1.9rem;
     font-weight: 500;
     color: var(--primary-color);
     margin-bottom: 0.5rem;
 }
 
 .stat-item .stat-label {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     color: var(--secondary-color);
     text-transform: uppercase;
     letter-spacing: 2px;
@@ -195,7 +195,7 @@ nav {
 
 .section-title {
     font-family: var(--font-display);
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--primary-color);
     font-weight: 500;
@@ -239,14 +239,14 @@ nav {
     font-family: var(--font-display);
     color: var(--primary-color);
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 
 .feature-card p {
     color: var(--secondary-color);
     line-height: 1.85;
-    font-size: 0.95rem;
+    font-size: 0.85rem;
 }
 
 /* Content Column */
@@ -260,7 +260,7 @@ nav {
     color: var(--primary-color);
     margin-top: 2.5rem;
     margin-bottom: 1rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     font-weight: 500;
 }
 
@@ -271,7 +271,7 @@ nav {
 .content-column p {
     color: var(--secondary-color);
     line-height: 1.85;
-    font-size: 1rem;
+    font-size: 0.9rem;
     margin-bottom: 1.5rem;
 }
 
@@ -302,6 +302,65 @@ nav {
     object-fit: cover;
 }
 
+.gallery-item-captioned {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    background-color: var(--light-gray);
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item-captioned:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item-captioned img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    display: block;
+}
+
+.gallery-caption {
+    padding: 0.75rem;
+    background-color: var(--white);
+    font-size: 0.8rem;
+    color: var(--secondary-color);
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Photo Strip (Homepage) */
+.photo-strip {
+    display: flex;
+    gap: 0.5rem;
+    overflow-x: auto;
+    padding: 0.5rem 0;
+    scrollbar-width: thin;
+}
+
+.photo-strip-item {
+    flex: 0 0 auto;
+    width: 180px;
+    height: 120px;
+    border-radius: 4px;
+    overflow: hidden;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.photo-strip-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 15px var(--shadow-heavy);
+}
+
+.photo-strip-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
 .gallery-placeholder {
     display: flex;
     align-items: center;
@@ -309,7 +368,7 @@ nav {
     height: 100%;
     background: linear-gradient(135deg, #1a2634 0%, #2c3e50 100%);
     color: var(--white);
-    font-size: 1rem;
+    font-size: 0.9rem;
     font-weight: 300;
 }
 
@@ -331,7 +390,7 @@ nav {
     font-family: var(--font-display);
     color: var(--primary-color);
     margin-bottom: 1.5rem;
-    font-size: 1.5rem;
+    font-size: 1.3rem;
     border-bottom: 1px solid var(--gold);
     padding-bottom: 0.75rem;
     font-weight: 500;
@@ -391,14 +450,14 @@ nav {
 }
 
 .spec-item .spec-value {
-    font-size: 1.8rem;
+    font-size: 1.5rem;
     font-weight: 700;
     color: var(--accent-color);
     margin-bottom: 0.5rem;
 }
 
 .spec-item .spec-label {
-    font-size: 1rem;
+    font-size: 0.85rem;
     color: var(--secondary-color);
 }
 
@@ -423,40 +482,268 @@ footer {
 .contact-info h3 {
     font-family: var(--font-display);
     margin-bottom: 1rem;
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: 400;
 }
 
 .contact-info p {
-    font-size: 1.1rem;
+    font-size: 0.95rem;
     margin: 0.5rem 0;
+}
+
+/* Mobile Navigation Toggle */
+.nav-toggle {
+    display: none;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+    padding: 0.5rem;
+    z-index: 1001;
+}
+
+.nav-toggle span {
+    display: block;
+    width: 24px;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: all 0.3s ease;
+}
+
+.nav-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
 }
 
 /* Responsive Design */
 @media (max-width: 768px) {
+    .nav-container {
+        padding: 0.75rem 1rem;
+    }
+
+    .nav-toggle {
+        display: flex;
+    }
+
+    .nav-links {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 280px;
+        height: 100vh;
+        background-color: var(--white);
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 2rem;
+        box-shadow: -5px 0 20px rgba(0, 0, 0, 0.1);
+        transition: right 0.3s ease;
+        z-index: 1000;
+    }
+
+    .nav-links.active {
+        right: 0;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .nav-overlay {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+    }
+
+    .nav-overlay.active {
+        display: block;
+    }
+
+    .hero {
+        height: 50vh;
+    }
+
     .hero-content h1 {
-        font-size: 2.5rem;
+        font-size: 1.75rem;
+        padding: 0 1rem;
     }
     
     .hero-content .price {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .hero-content .address {
-        font-size: 1.2rem;
+        font-size: 0.9rem;
+        padding: 0 1rem;
     }
-    
-    .nav-links {
-        flex-direction: column;
+
+    .cta-button {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.7rem;
+    }
+
+    .quick-stats {
+        padding: 1.5rem 1rem;
+    }
+
+    .stats-grid {
         gap: 1rem;
+    }
+
+    .stat-item {
+        padding: 0.75rem;
+    }
+
+    .stat-item .stat-number {
+        font-size: 1.4rem;
+    }
+
+    .stat-item .stat-label {
+        font-size: 0.6rem;
+        letter-spacing: 1px;
     }
     
     .section-title {
-        font-size: 2rem;
+        font-size: 1.5rem;
     }
     
     .container {
         padding: 2rem 1rem;
+    }
+
+    .section {
+        margin-bottom: 2.5rem;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 1rem;
+    }
+
+    .feature-card {
+        padding: 1.5rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.1rem;
+    }
+
+    .gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.75rem;
+    }
+
+    .gallery-item-captioned img {
+        aspect-ratio: 1/1;
+    }
+
+    .gallery-caption {
+        font-size: 0.7rem;
+        padding: 0.5rem;
+    }
+
+    .photo-strip {
+        gap: 0.35rem;
+    }
+
+    .photo-strip-item {
+        width: 120px;
+        height: 80px;
+    }
+
+    .details-grid {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+    }
+
+    .detail-section {
+        padding: 1.25rem;
+    }
+
+    .detail-section h3 {
+        font-size: 1.1rem;
+    }
+
+    .plan-specs {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 1rem;
+    }
+
+    .spec-item {
+        padding: 1rem;
+    }
+
+    .spec-item .spec-value {
+        font-size: 1.2rem;
+    }
+
+    .spec-item .spec-label {
+        font-size: 0.75rem;
+    }
+
+    footer {
+        padding: 2rem 1rem;
+    }
+
+    .contact-info h3 {
+        font-size: 1.4rem;
+    }
+
+    .contact-info p {
+        font-size: 0.85rem;
+    }
+
+    .lightbox-nav {
+        font-size: 2rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .lightbox-prev {
+        left: 0.5rem;
+    }
+
+    .lightbox-next {
+        right: 0.5rem;
+    }
+
+    .lightbox-close {
+        top: 1rem;
+        right: 1rem;
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .gallery-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .stats-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .plan-specs {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-content h1 {
+        font-size: 1.5rem;
+    }
+
+    .hero-content .price {
+        font-size: 1.3rem;
     }
 }
 

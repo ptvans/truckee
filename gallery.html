@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Photo Gallery - 15627 Sudsbury Circle</title>
+    <title>Photos - 15627 Sudsbury Circle</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         .lightbox {
@@ -67,6 +67,24 @@
         .lightbox-next {
             right: 2rem;
         }
+
+        .lightbox-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 90%;
+            max-height: 90%;
+        }
+
+        .lightbox-caption {
+            color: white;
+            font-size: 1rem;
+            margin-top: 1rem;
+            text-align: center;
+            font-weight: 300;
+            letter-spacing: 0.5px;
+            opacity: 0.9;
+        }
     </style>
 </head>
 <body>
@@ -74,18 +92,24 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Sudsbury <span>Circle</span></div>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Photos</a></li>
                 <li><a href="plans.html">Architectural Plans</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="details.html">Full Details</a></li>
             </ul>
+            <div class="nav-overlay" onclick="toggleNav()"></div>
         </div>
     </nav>
 
     <!-- Page Header -->
     <div style="background: linear-gradient(135deg, #1a2634 0%, #2c3e50 100%); color: white; padding: 5rem 2rem; text-align: center;">
-        <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 400; margin-bottom: 1rem; letter-spacing: 1px;">Photo Gallery</h1>
+        <h1 style="font-family: 'Cormorant Garamond', Georgia, serif; font-size: 3rem; font-weight: 400; margin-bottom: 1rem; letter-spacing: 1px;">Photos</h1>
         <p style="font-size: 1.1rem; opacity: 0.9; font-weight: 300; letter-spacing: 0.5px;">The Property and Its Surroundings</p>
     </div>
 
@@ -101,87 +125,141 @@
         <!-- Gallery Grid -->
         <section class="section">
             <div class="gallery-grid">
-                <!-- Placeholder for Property Views -->
-                <div class="gallery-item" onclick="openLightbox(0)">
-                    <div class="gallery-placeholder">
-                        <div style="text-align: center;">
-                            <p>Lot Overview</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Street View</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(0)">
+                    <img src="images/photos/view-from-corner-Sudsbury-and-Dorcester.jpg" alt="View from Corner of Sudsbury and Dorcester">
+                    <div class="gallery-caption">View from Corner of Sudsbury &amp; Dorcester</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(1)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #2c3e50 0%, #3d566e 100%);">
-                        <div style="text-align: center;">
-                            <p>Castle Peak View</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Eastern Sightline</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(1)">
+                    <img src="images/photos/view-from-street.jpg" alt="View from Street">
+                    <div class="gallery-caption">View from Street</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(2)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #4a6580 100%);">
-                        <div style="text-align: center;">
-                            <p>Jeffrey Pines</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Mature Trees</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(2)">
+                    <img src="images/photos/Sudsbury-Circle.jpg" alt="Sudsbury Circle">
+                    <div class="gallery-caption">Sudsbury Circle</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(3)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4a6580 0%, #2c3e50 100%);">
-                        <div style="text-align: center;">
-                            <p>Glenshire Meadow</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Western View</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(3)">
+                    <img src="images/photos/south-along-Sudsbury-Circle.jpg" alt="South Along Sudsbury Circle">
+                    <div class="gallery-caption">South Along Sudsbury Circle</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(4)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #1a2634 0%, #3d566e 100%);">
-                        <div style="text-align: center;">
-                            <p>Building Site</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Cleared Footprint</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(4)">
+                    <img src="images/photos/looking-south-along-Sudsbury-Circle.jpg" alt="Looking South Along Sudsbury Circle">
+                    <div class="gallery-caption">Looking South Along Sudsbury Circle</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(5)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #1a2634 100%);">
-                        <div style="text-align: center;">
-                            <p>Mountain Views</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Multiple Sightlines</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(5)">
+                    <img src="images/photos/west-along-Dorcester-drive.jpg" alt="West Along Dorcester Drive">
+                    <div class="gallery-caption">West Along Dorcester Drive</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(6)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #2c3e50 0%, #4a6580 100%);">
-                        <div style="text-align: center;">
-                            <p>Trail Access</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Greenspace Network</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(6)">
+                    <img src="images/photos/southwest-corner.jpg" alt="Southwest Corner">
+                    <div class="gallery-caption">Southwest Corner</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(7)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #4a6580 0%, #3d566e 100%);">
-                        <div style="text-align: center;">
-                            <p>Neighborhood</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Glenshire Setting</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(7)">
+                    <img src="images/photos/southwest.jpg" alt="Southwest View">
+                    <div class="gallery-caption">Southwest View</div>
                 </div>
 
-                <div class="gallery-item" onclick="openLightbox(8)">
-                    <div class="gallery-placeholder" style="background: linear-gradient(135deg, #3d566e 0%, #2c3e50 100%);">
-                        <div style="text-align: center;">
-                            <p>Lot Exposure</p>
-                            <p style="font-size: 0.85rem; opacity: 0.7; margin-top: 0.5rem;">Natural Light</p>
-                        </div>
-                    </div>
+                <div class="gallery-item-captioned" onclick="openLightbox(8)">
+                    <img src="images/photos/west-along-south-property-line.jpg" alt="West Along South Property Line">
+                    <div class="gallery-caption">West Along South Property Line</div>
                 </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(9)">
+                    <img src="images/photos/south-jeffrey-pines.jpg" alt="South Jeffrey Pines">
+                    <div class="gallery-caption">South Jeffrey Pines</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(10)">
+                    <img src="images/photos/homesite-clearing.jpg" alt="Homesite Clearing">
+                    <div class="gallery-caption">Homesite Clearing</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(11)">
+                    <img src="images/photos/homesite-clearing-02.jpg" alt="Homesite Clearing">
+                    <div class="gallery-caption">Homesite Clearing</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(12)">
+                    <img src="images/photos/south-to-homesite-clearing.jpg" alt="South to Homesite Clearing">
+                    <div class="gallery-caption">South to Homesite Clearing</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(13)">
+                    <img src="images/photos/west-through-homesite-clearing.jpg" alt="West Through Homesite Clearing">
+                    <div class="gallery-caption">West Through Homesite Clearing</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(14)">
+                    <img src="images/photos/looking-north-along-eastern-property-line.jpg" alt="Looking North Along Eastern Property Line">
+                    <div class="gallery-caption">Looking North Along Eastern Property Line</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(15)">
+                    <img src="images/photos/looking-north-along-eastern-line-02.jpg" alt="Looking North Along Eastern Line">
+                    <div class="gallery-caption">Looking North Along Eastern Line</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(16)">
+                    <img src="images/photos/west-from-NE-corner.jpg" alt="West from NE Corner">
+                    <div class="gallery-caption">West from NE Corner</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(17)">
+                    <img src="images/photos/west-from-NE-corner-02.jpg" alt="West from NE Corner">
+                    <div class="gallery-caption">West from NE Corner</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(18)">
+                    <img src="images/photos/west-from-NE-corner-03.jpg" alt="West from NE Corner">
+                    <div class="gallery-caption">West from NE Corner</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(19)">
+                    <img src="images/photos/north-from-rear-corner.jpg" alt="North from Rear Corner">
+                    <div class="gallery-caption">North from Rear Corner</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(20)">
+                    <img src="images/photos/north-from-rear-downslope.jpg" alt="North from Rear Downslope">
+                    <div class="gallery-caption">North from Rear Downslope</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(21)">
+                    <img src="images/photos/west-view-to-castle-peak.jpg" alt="West View to Castle Peak">
+                    <div class="gallery-caption">West View to Castle Peak</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(22)">
+                    <img src="images/photos/southeast-to-martis-peak.jpg" alt="Southeast to Martis Peak">
+                    <div class="gallery-caption">Southeast to Martis Peak</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(23)">
+                    <img src="images/photos/southeast-toward-meadow-and-martis-peak.jpg" alt="Southeast Toward Meadow and Martis Peak">
+                    <div class="gallery-caption">Southeast Toward Meadow &amp; Martis Peak</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(24)">
+                    <img src="images/photos/view-to-street-from-lot-grade.jpg" alt="View to Street from Lot Grade">
+                    <div class="gallery-caption">View to Street from Lot Grade</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(25)">
+                    <img src="images/photos/IMG_7617.jpeg" alt="Property View">
+                    <div class="gallery-caption">Property View</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(26)">
+                    <img src="images/photos/IMG_7628.jpeg" alt="Property View">
+                    <div class="gallery-caption">Property View</div>
+                </div>
+
             </div>
         </section>
 
@@ -222,9 +300,9 @@
         <span class="lightbox-close" onclick="closeLightbox(event)">&times;</span>
         <span class="lightbox-nav lightbox-prev" onclick="changeImage(-1, event)">&#10094;</span>
         <span class="lightbox-nav lightbox-next" onclick="changeImage(1, event)">&#10095;</span>
-        <div id="lightbox-content" style="text-align: center; color: white;">
-            <p style="font-size: 2rem; margin-bottom: 2rem;">Image placeholder - awaiting your photos</p>
-            <p style="opacity: 0.8;">This is a placeholder. Replace with actual property images.</p>
+        <div class="lightbox-container">
+            <img id="lightbox-image" class="lightbox-content" src="" alt="Property Photo">
+            <div id="lightbox-caption" class="lightbox-caption"></div>
         </div>
     </div>
 
@@ -244,15 +322,67 @@
     <script>
         let currentImageIndex = 0;
         const images = [
-            'Lot Overview - Front View',
-            'Castle Peak View - Eastern View',
-            'Jeffrey Pines - Mature Trees',
-            'Glenshire Meadow - Western Backdrop',
-            'Building Footprint - Cleared Area',
-            'Mountain Views - Multiple Directions',
-            'Trail Access - Greenspace Trails',
-            'Neighborhood - Glenshire Community',
-            'Natural Light - Sunny Exposure'
+            'images/photos/view-from-corner-Sudsbury-and-Dorcester.jpg',
+            'images/photos/view-from-street.jpg',
+            'images/photos/Sudsbury-Circle.jpg',
+            'images/photos/south-along-Sudsbury-Circle.jpg',
+            'images/photos/looking-south-along-Sudsbury-Circle.jpg',
+            'images/photos/west-along-Dorcester-drive.jpg',
+            'images/photos/southwest-corner.jpg',
+            'images/photos/southwest.jpg',
+            'images/photos/west-along-south-property-line.jpg',
+            'images/photos/south-jeffrey-pines.jpg',
+            'images/photos/homesite-clearing.jpg',
+            'images/photos/homesite-clearing-02.jpg',
+            'images/photos/south-to-homesite-clearing.jpg',
+            'images/photos/west-through-homesite-clearing.jpg',
+            'images/photos/looking-north-along-eastern-property-line.jpg',
+            'images/photos/looking-north-along-eastern-line-02.jpg',
+            'images/photos/west-from-NE-corner.jpg',
+            'images/photos/west-from-NE-corner-02.jpg',
+            'images/photos/west-from-NE-corner-03.jpg',
+            'images/photos/north-from-rear-corner.jpg',
+            'images/photos/north-from-rear-downslope.jpg',
+            'images/photos/west-view-to-castle-peak.jpg',
+            'images/photos/southeast-to-martis-peak.jpg',
+            'images/photos/southeast-toward-meadow-and-martis-peak.jpg',
+            'images/photos/view-to-street-from-lot-grade.jpg',
+            'images/photos/IMG_7617.jpeg',
+            'images/photos/IMG_7628.jpeg',
+            'images/photos/IMG_7668.jpeg',
+            'images/photos/IMG_7673.jpeg'
+        ];
+
+        const captions = [
+            'View from Corner of Sudsbury & Dorcester',
+            'View from Street',
+            'Sudsbury Circle',
+            'South Along Sudsbury Circle',
+            'Looking South Along Sudsbury Circle',
+            'West Along Dorcester Drive',
+            'Southwest Corner',
+            'Southwest View',
+            'West Along South Property Line',
+            'South Jeffrey Pines',
+            'Homesite Clearing',
+            'Homesite Clearing',
+            'South to Homesite Clearing',
+            'West Through Homesite Clearing',
+            'Looking North Along Eastern Property Line',
+            'Looking North Along Eastern Line',
+            'West from NE Corner',
+            'West from NE Corner',
+            'West from NE Corner',
+            'North from Rear Corner',
+            'North from Rear Downslope',
+            'West View to Castle Peak',
+            'Southeast to Martis Peak',
+            'Southeast Toward Meadow & Martis Peak',
+            'View to Street from Lot Grade',
+            'Property View',
+            'Property View',
+            'Property View',
+            'Property View'
         ];
 
         function openLightbox(index) {
@@ -274,12 +404,8 @@
         }
 
         function updateLightboxContent() {
-            const content = document.getElementById('lightbox-content');
-            content.innerHTML = `
-                <p style="font-size: 2rem; margin-bottom: 1rem;">${images[currentImageIndex]}</p>
-                <p style="opacity: 0.8; font-size: 1.1rem;">Image placeholder ${currentImageIndex + 1} of ${images.length}</p>
-                <p style="opacity: 0.6; margin-top: 2rem;">Replace with actual property photos</p>
-            `;
+            document.getElementById('lightbox-image').src = images[currentImageIndex];
+            document.getElementById('lightbox-caption').textContent = captions[currentImageIndex] + ' (' + (currentImageIndex + 1) + ' of ' + images.length + ')';
         }
 
         // Keyboard navigation
@@ -295,6 +421,13 @@
                 }
             }
         });
+
+        // Mobile navigation toggle
+        function toggleNav() {
+            document.querySelector('.nav-toggle').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-overlay').classList.toggle('active');
+        }
     </script>
 </body>
 </html>

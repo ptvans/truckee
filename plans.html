@@ -11,12 +11,18 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Sudsbury <span>Circle</span></div>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Photos</a></li>
                 <li><a href="plans.html">Architectural Plans</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="details.html">Full Details</a></li>
             </ul>
+            <div class="nav-overlay" onclick="toggleNav()"></div>
         </div>
     </nav>
 
@@ -199,9 +205,17 @@
                 <p style="font-size: 1.1rem; line-height: 1.8; margin-bottom: 2rem;">
                     The proposed home is thoughtfully positioned on the lot to maximize natural light, capture views, and preserve as many of the existing Jeffrey pines as possible. The building footprint has been cleared and the lot is ready for construction.
                 </p>
-                <div style="background: linear-gradient(135deg, #1a2634 0%, #2c3e50 100%); padding: 5rem 3rem; border-radius: 4px; text-align: center; color: white;">
-                    <p style="font-size: 1rem; font-weight: 300;">Site Plan</p>
-                    <p style="margin-top: 0.75rem; opacity: 0.7; font-size: 0.9rem;">Lot boundaries, proposed placement, tree locations</p>
+                <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 1.5rem;">
+                    <div style="background-color: white; padding: 1.5rem; border-radius: 4px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.04);">
+                        <img src="images/Site_Plan_Rotated_02-03-22.png" alt="Site Plan - Lot boundaries, proposed placement, tree locations" style="width: 100%; height: auto; border-radius: 4px; display: block;">
+                        <p style="text-align: center; margin-top: 1rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #1a2634; font-weight: 500;">Site Plan</p>
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #3d4f5f;">Lot boundaries, proposed placement, tree locations</p>
+                    </div>
+                    <div style="background-color: white; padding: 1.5rem; border-radius: 4px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.04);">
+                        <img src="images/driveway-E-variant.png" alt="Driveway Configuration" style="width: 100%; height: auto; border-radius: 4px; display: block;">
+                        <p style="text-align: center; margin-top: 1rem; font-family: 'Cormorant Garamond', Georgia, serif; font-size: 1.1rem; color: #1a2634; font-weight: 500;">Driveway Configuration</p>
+                        <p style="text-align: center; margin-top: 0.5rem; font-size: 0.9rem; color: #3d4f5f;">Proposed driveway approach and garage access</p>
+                    </div>
                 </div>
             </div>
         </section>
@@ -212,7 +226,7 @@
                 <h2 style="font-family: 'Cormorant Garamond', Georgia, serif; color: #1a2634; margin-bottom: 1.5rem; font-weight: 500;">Build Your Vision</h2>
                 <p style="font-size: 1.05rem; margin-bottom: 2rem; color: #3d4f5f; line-height: 1.8;">These plans can be customized, or bring your own design to this build-ready lot.</p>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
-                    <a href="gallery.html" class="cta-button">Photo Gallery</a>
+                    <a href="gallery.html" class="cta-button">Photos</a>
                     <a href="details.html" class="cta-button">Full Details</a>
                 </div>
             </div>
@@ -231,6 +245,15 @@
             <p style="margin-top: 2.5rem; opacity: 0.6; font-size: 0.85rem;">&copy; 2026 15627 Sudsbury Circle, Truckee, CA</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            document.querySelector('.nav-toggle').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-overlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
 

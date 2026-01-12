@@ -11,12 +11,18 @@
     <nav>
         <div class="nav-container">
             <div class="logo">Sudsbury <span>Circle</span></div>
+            <div class="nav-toggle" onclick="toggleNav()">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
             <ul class="nav-links">
                 <li><a href="index.html">Home</a></li>
+                <li><a href="gallery.html">Photos</a></li>
                 <li><a href="plans.html">Architectural Plans</a></li>
-                <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="details.html">Full Details</a></li>
             </ul>
+            <div class="nav-overlay" onclick="toggleNav()"></div>
         </div>
     </nav>
 
@@ -205,7 +211,7 @@
             <h2 class="section-title">Property Summary</h2>
             <div style="background-color: white; padding: 3rem; border-radius: 4px; box-shadow: 0 2px 20px rgba(0,0,0,0.08); border: 1px solid rgba(0,0,0,0.04);">
                 <p style="font-size: 1.05rem; line-height: 1.9; color: #3d4f5f; margin-bottom: 1.25rem;">
-                    Large, predominantly flat buildable lot with gentle rear slope toward Glenshire meadow to the west. Castle Peak views to the east.
+                    Large, predominantly flat buildable lot with gentle rear slope toward Glenshire meadow to the west. View of Castle Peak to the west and Martis Peak to the southeast.
                 </p>
                 <p style="font-size: 1.05rem; line-height: 1.9; color: #3d4f5f; margin-bottom: 1.25rem;">
                     The property backs to permanent protected natural greenspace with an established trail system—providing an extended backyard that cannot be developed.
@@ -264,8 +270,8 @@
             <h2 class="section-title">Location & Surroundings</h2>
             <div class="features-grid">
                 <div class="feature-card">
-                    <h3>Castle Peak Views</h3>
-                    <p>Eastern sightlines to Castle Peak, one of the Sierra Nevada's most recognizable summits at 9,103 feet.</p>
+                    <h3>Mountain Views</h3>
+                    <p>Sightlines to Castle Peak to the west (9,103 feet) and Martis Peak to the southeast, two of the Sierra Nevada's most recognizable summits.</p>
                 </div>
                 <div class="feature-card">
                     <h3>Glenshire Meadow</h3>
@@ -302,8 +308,8 @@
                     <div style="color: #3d4f5f; font-size: 0.95rem; letter-spacing: 0.5px;">0.47 Acres · Build-Ready · Plans Included</div>
                 </div>
                 <div style="display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap;">
+                    <a href="gallery.html" class="cta-button">Photos</a>
                     <a href="plans.html" class="cta-button">View Plans</a>
-                    <a href="gallery.html" class="cta-button">Photo Gallery</a>
                 </div>
             </div>
         </section>
@@ -321,6 +327,15 @@
             <p style="margin-top: 2.5rem; opacity: 0.6; font-size: 0.85rem;">&copy; 2026 15627 Sudsbury Circle, Truckee, CA</p>
         </div>
     </footer>
+
+    <script>
+        // Mobile navigation toggle
+        function toggleNav() {
+            document.querySelector('.nav-toggle').classList.toggle('active');
+            document.querySelector('.nav-links').classList.toggle('active');
+            document.querySelector('.nav-overlay').classList.toggle('active');
+        }
+    </script>
 </body>
 </html>
 
