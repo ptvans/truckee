@@ -141,6 +141,16 @@
         <!-- Gallery Grid -->
         <section class="section">
             <div class="gallery-grid">
+                <div class="gallery-item-captioned" onclick="openLightbox(28)">
+                    <img src="images/renderings/Sudsbury_Circle_Rendering_Front.jpg" alt="Rendering - Front">
+                    <div class="gallery-caption">Rendering: Front</div>
+                </div>
+
+                <div class="gallery-item-captioned" onclick="openLightbox(29)">
+                    <img src="images/renderings/Sudsbury_Circle_Rendering_Rear.jpg" alt="Rendering - Rear">
+                    <div class="gallery-caption">Rendering: Rear</div>
+                </div>
+                
                 <div class="gallery-item-captioned" onclick="openLightbox(0)">
                     <img src="images/photos/view-from-corner-Sudsbury-and-Dorcester.jpg" alt="View from Corner of Sudsbury and Dorcester">
                     <div class="gallery-caption">View from Corner of Sudsbury &amp; Dorcester</div>
@@ -367,7 +377,10 @@
             'images/photos/southeast-toward-meadow-and-martis-peak.jpg',
             'images/photos/view-to-street-from-lot-grade.jpg',
             'images/photos/homesite-clearing-with-house-number.jpeg',
-            'images/photos/homesite-clearing-snow.jpeg'
+            'images/photos/homesite-clearing-snow.jpeg',
+            'images/Site_Plan_Rotated_02-03-22.png',
+            'images/renderings/Sudsbury_Circle_Rendering_Front.jpg',
+            'images/renderings/Sudsbury_Circle_Rendering_Rear.jpg'
         ];
 
         const captions = [
@@ -397,7 +410,10 @@
             'Southeast Toward Meadow & Martis Peak',
             'View to Street from Lot Grade',
             'Homesite Clearing with House Number',
-            'Homesite Clearing with Snow'
+            'Homesite Clearing with Snow',
+            'Site Plan',
+            'Rendering: Front',
+            'Rendering: Rear'
         ];
 
         function openLightbox(index) {
